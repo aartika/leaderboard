@@ -20,7 +20,25 @@ public class NavigableMapLeaderBoard implements LeaderBoard {
         return navigableMap;
     }
 
-    public void add(User user, double score) {
+    public void addToBoard(User user, double score) {
+
+        if(userToScoreMap.containsKey(user)) {
+            update(user, score);
+        } else {
+            add(user, score);
+        }
+    }
+
+    public void updateBoard(User user, double score){
+
+        if(userToScoreMap.containsKey(user)) {
+            update(user, score);
+        } else {
+            add(user, score);
+        }
+    }
+
+    private void add(User user, double score) {
         userToScoreMap.put(user, score);
         LinkedMap users;
         if (navigableMap.containsKey(score)) {
@@ -32,20 +50,22 @@ public class NavigableMapLeaderBoard implements LeaderBoard {
         navigableMap.put(score, users);
     }
 
-    public void update(User user, double score){
-        if(userToScoreMap.containsKey(user)){
-            Double currentScore = userToScoreMap.get(user);
-            if(currentScore != score){
-                userToScoreMap.put(user, score);
-                LinkedMap scoreMap = navigableMap.get(currentScore);
-                scoreMap.remove(user);
-                if(scoreMap.size() == 0)
-                    navigableMap.remove(currentScore);
-                add(user, score);
-            }
-        }
-        else
+    private void update(User user, double score) {
+        double currentScore = userToScoreMap.get(user);
+        if (currentScore != score) {
+            remove(user);
             add(user, score);
+        }
+    }
+
+    private void remove(User user) {
+        double score = userToScoreMap.get(user);
+        userToScoreMap.remove(user);
+        LinkedMap userMap = navigableMap.get(score);
+        userMap.remove(user);
+        if (userMap.isEmpty()) {
+            navigableMap.remove(score);
+        }
     }
 
     public List<User> topN(int n) {

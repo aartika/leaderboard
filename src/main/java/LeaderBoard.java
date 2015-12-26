@@ -5,9 +5,9 @@ import java.util.List;
  */
 public interface LeaderBoard {
 
-    public void add(User user, double score);
+    public void addToBoard(User user, double score);
 
-    public void update(User user, double score);
+    public void updateBoard(User user, double score);
 
     public List<User> topN(int n);
 
