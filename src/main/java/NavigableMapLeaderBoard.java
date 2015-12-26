@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Created by aartika.rai on 12/26/15.
  */
-public class NavigableMapLeaderBoard implements LeaderBoard{
+public class NavigableMapLeaderBoard implements LeaderBoard {
 
     private NavigableMap<Double, LinkedMap> navigableMap;
     private Map<User, Double> userToScoreMap = Maps.newHashMap();
@@ -55,7 +55,7 @@ public class NavigableMapLeaderBoard implements LeaderBoard{
 
     public List<User> neighbors(User user, int n1, int n2) {
         List<User> users = Lists.newArrayList();
-        users.addAll(lowN(user, n1));
+        users.addAll(lowN(user, n1 + 1));
         List<User> high = highN(user, n2 + 1);
         users.addAll(high.subList(1, high.size()));
         return users;

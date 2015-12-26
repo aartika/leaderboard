@@ -50,7 +50,7 @@ public class LeaderBoardTest {
         leaderBoard.add(new User(9), 12);
         leaderBoard.add(new User(10), 6);
         System.out.println(leaderBoard.getNavigableMap());
-        assertEquals(Lists.newArrayList(new User(3), new User(6), new User(4), new User(5)),
+        assertEquals(Lists.newArrayList(new User(10), new User(3), new User(6), new User(4), new User(5)),
                 leaderBoard.neighbors(new User(6), 2, 2));
     }
 
@@ -86,11 +86,11 @@ public class LeaderBoardTest {
         leaderBoard.add(new User(7), 12);
         leaderBoard.add(new User(8), 45);
         System.out.println(leaderBoard.getNavigableMap());
-        assertEquals(Lists.newArrayList(new User(3), new User(6), new User(4), new User(5)),
+        assertEquals(Lists.newArrayList(new User(2), new User(3), new User(6), new User(4), new User(5)),
                 leaderBoard.neighbors(new User(6), 2, 2));
 
         leaderBoard.update(new User(1), 7);
-        assertEquals(Lists.newArrayList(new User(1), new User(6), new User(4), new User(5)),
+        assertEquals(Lists.newArrayList(new User(3), new User(1), new User(6), new User(4), new User(5)),
                 leaderBoard.neighbors(new User(6), 2, 2));
         System.out.println(leaderBoard.getNavigableMap());
 
