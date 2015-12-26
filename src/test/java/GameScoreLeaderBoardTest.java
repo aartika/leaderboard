@@ -7,11 +7,11 @@ import static org.junit.Assert.*;
 /**
  * Created by aartika.rai on 12/26/15.
  */
-public class LeaderBoardTest {
+public class GameScoreLeaderBoardTest {
 
     @Test
     public void testAdd() throws Exception {
-        NavigableMapLeaderBoard leaderBoard = new NavigableMapLeaderBoard(new SkipListNavigableMap<Double, LinkedMap>());
+        GameScoreLeaderBoard leaderBoard = new GameScoreLeaderBoard(new SkipListNavigableMap<Double, LinkedMap>());
         leaderBoard.addToBoard(new User(1), 1);
         leaderBoard.addToBoard(new User(2), 3);
         leaderBoard.addToBoard(new User(3), 6);
@@ -24,7 +24,7 @@ public class LeaderBoardTest {
 
     @Test
     public void testTopN() throws Exception {
-        NavigableMapLeaderBoard leaderBoard = new NavigableMapLeaderBoard(new SkipListNavigableMap<Double, LinkedMap>());
+        GameScoreLeaderBoard leaderBoard = new GameScoreLeaderBoard(new SkipListNavigableMap<Double, LinkedMap>());
         leaderBoard.addToBoard(new User(1), 1);
         leaderBoard.addToBoard(new User(2), 3);
         leaderBoard.addToBoard(new User(3), 6);
@@ -38,7 +38,7 @@ public class LeaderBoardTest {
 
     @Test
     public void testNeighbors() throws Exception {
-        NavigableMapLeaderBoard leaderBoard = new NavigableMapLeaderBoard(new SkipListNavigableMap<Double, LinkedMap>());
+        GameScoreLeaderBoard leaderBoard = new GameScoreLeaderBoard(new SkipListNavigableMap<Double, LinkedMap>());
         leaderBoard.addToBoard(new User(1), 1);
         leaderBoard.addToBoard(new User(2), 3);
         leaderBoard.addToBoard(new User(3), 6);
@@ -56,7 +56,7 @@ public class LeaderBoardTest {
 
     @Test
     public void testNeighborsLimit() throws Exception {
-        NavigableMapLeaderBoard leaderBoard = new NavigableMapLeaderBoard(new SkipListNavigableMap<Double, LinkedMap>());
+        GameScoreLeaderBoard leaderBoard = new GameScoreLeaderBoard(new SkipListNavigableMap<Double, LinkedMap>());
         leaderBoard.addToBoard(new User(1), 1);
         leaderBoard.addToBoard(new User(2), 3);
         leaderBoard.addToBoard(new User(3), 6);
@@ -76,7 +76,7 @@ public class LeaderBoardTest {
 
     @Test
     public void testUpdate() throws Exception {
-        NavigableMapLeaderBoard leaderBoard = new NavigableMapLeaderBoard(new SkipListNavigableMap<Double, LinkedMap>());
+        GameScoreLeaderBoard leaderBoard = new GameScoreLeaderBoard(new SkipListNavigableMap<Double, LinkedMap>());
         leaderBoard.addToBoard(new User(1), 1);
         leaderBoard.addToBoard(new User(2), 3);
         leaderBoard.addToBoard(new User(3), 6);
@@ -98,7 +98,7 @@ public class LeaderBoardTest {
 
     @Test
     public void testAll(){
-        NavigableMapLeaderBoard leaderBoard = new NavigableMapLeaderBoard(new SkipListNavigableMap<Double, LinkedMap>());
+        GameScoreLeaderBoard leaderBoard = new GameScoreLeaderBoard(new SkipListNavigableMap<Double, LinkedMap>());
         for(int i = 0; i < 1000; i++){
             int user = (int) (Math.random()*1000);
             double score = (int) (Math.random() * 1000) + 0.5;

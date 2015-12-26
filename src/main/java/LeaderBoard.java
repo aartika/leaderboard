@@ -3,13 +3,13 @@ import java.util.List;
 /**
  * Created by aartika.rai on 12/26/15.
  */
-public interface LeaderBoard {
+public interface LeaderBoard<T> {
 
-    public void addToBoard(User user, double score);
+    public void addToBoard(T user, double score);
 
-    public void updateBoard(User user, double score);
+    public void updateBoard(T user, double score);
 
-    public List<User> topN(int n);
+    public List<T> topN(int n);
 
-    public List<User> neighbors(User user, int n1, int n2);
+    public List<T> neighbors(T user, int n1, int n2);
 }

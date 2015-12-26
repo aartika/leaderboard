@@ -7,12 +7,12 @@ import java.util.*;
 /**
  * Created by aartika.rai on 12/26/15.
  */
-public class NavigableMapLeaderBoard implements LeaderBoard {
+public class GameScoreLeaderBoard implements LeaderBoard<User> {
 
     private NavigableMap<Double, LinkedMap> navigableMap;
     private Map<User, Double> userToScoreMap = Maps.newHashMap();
 
-    public NavigableMapLeaderBoard(NavigableMap<Double, LinkedMap> navigableMap) {
+    public GameScoreLeaderBoard(NavigableMap<Double, LinkedMap> navigableMap) {
         this.navigableMap = navigableMap;
     }
 
